@@ -8,7 +8,12 @@
   <button type="submit">Add</button>
 </form>
 
-
+<h1>Country List</h1>
 <ul>
-  <li *ngFor="#name of nameListService.get()">{{name}}</li>
+  <li *ngFor="#country of countries">{{country}}</li>
+</ul>
+
+<h1>Name List</h1>
+<ul>
+  <li *ngFor="#name of nameListService.getUsers()">{{name}}</li>
 </ul>

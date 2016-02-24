@@ -1,15 +1,23 @@
 export class NameListService {
-  names = [
-    'Edsger Dijkstra',
+  users = [
+    'Kay Bui',
     'Donald Knuth',
     'Alan Turing',
     'Grace Hopper'
   ];
 
-  get(): string[] {
-    return this.names;
+  countries = [
+    'Finland',
+    'Norway',
+    'Denmark',
+    'Estonia'
+  ];
+
+  getCountries(): string[] {
+    return this.countries;
   }
-  add(value: string): void {
-    this.names.push(value);
+
+  getUsers(country: string): string[] {
+    return this.users;
   }
 }
