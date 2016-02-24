@@ -6,6 +6,8 @@ export class NameListService {
     'Grace Hopper'
   ];
 
+  userList = [];
+
   countries = [
     'Finland',
     'Norway',
@@ -17,7 +19,13 @@ export class NameListService {
     return this.countries;
   }
 
-  getUsers(country: string): string[] {
-    return this.users;
+  getUsers(): string[] {
+    return this.userList;
+  }
+
+  updateUserList(country: string): void {
+    console.log('country:'+country);
+    this.userList = [];
+    this.userList.push(this.users[+country]);
   }
 }

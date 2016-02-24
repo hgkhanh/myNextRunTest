@@ -15,5 +15,11 @@ export class CountryComponent {
 
   constructor(public nameListService: NameListService) {
     this.countries = nameListService.getCountries();
+    console.log('clgt');
+  }
+
+  onCountryChangeEvent (newCountry): void {
+    console.log('change');
+    this.nameListService.updateUserList(newCountry);
   }
 }
