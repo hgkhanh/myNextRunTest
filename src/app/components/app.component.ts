@@ -9,6 +9,7 @@ import {NameListService} from '../../shared/services/name-list.service';
   viewProviders: [NameListService],
   moduleId: module.id,
   templateUrl: './app.component.html',
+  styleUrls: ['../../assets/main.css'],
   encapsulation: ViewEncapsulation.None,
   directives: [ROUTER_DIRECTIVES, ToolbarComponent]
 })

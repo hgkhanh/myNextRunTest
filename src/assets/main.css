@@ -1,3 +1,14 @@
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
 /* Reset */
 html, body, div {
   border: 0;
@@ -10,7 +21,7 @@ html, body, div {
 
 /* Set up a default font and some padding to provide breathing room */
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -57,3 +68,4 @@ button {
 button:hover {
   background-color: #28739E;
 }
+

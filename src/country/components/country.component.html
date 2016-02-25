@@ -1,18 +1,52 @@
-<h1>Country List</h1>
-<select (change)="onCountryChangeEvent($event.target.value)">
-	<option selected="selected" value=''> - Select Country - </option>
-  <option *ngFor="#country of countries;
-  #index = index" value={{country}}>{{country}}</option>
-</select>
+<div class='col-sm-12'>
+  <h1>Country List</h1>
+  <div class="col-sm-8 text-center mb10">
+    <select class="country-select " 
+      (change)="onCountryChangeEvent($event.target.value)">
+    	<option selected="selected" value=''> - Select Country - </option>
+      <option *ngFor="#country of countries;
+      #index = index" value={{country}}>{{country}}</option>
+    </select>
+  </div>
+  <div class="search-button col-sm-4 text-center mb10">
+    <button type="button" class="btn btn-success">Search</button>
+  </div>
+</div>
 
-<h1>Name List</h1>
-<ul>
-  <li *ngFor="#runner of runners">
-  	<div>Name: {{runner.name}}</div>
-  	<div>City: {{runner.city}}</div>
-  	<div>Profile Image: {{runner.profileImg}}</div>
-  	<div>Profile Link: {{runner.runnersProfile}}</div>
-  	<div>Event Count: {{runner.eventCount}}</div>
-  	<hr/>
-  </li>
-</ul>
+<div class='container'>
+  <ul>
+    <!-- Runner Profile Block -->
+    <li *ngFor="#runner of runners" 
+      class='col-xs-6 col-sm-4 col-md-3 col-lg-3'>
+      <div class="widget-profile-holder">
+        <div class="widget-profile-header text-center">
+          <div class="profile-name mb20">
+            <span>{{runner.name}}</span>
+          </div>
+          <div class="profile-name mb10">
+            <img src="{{runner.profileImg}}" 
+            class="img-circle circle-border m-b-md" alt="profile">
+          </div>
+          <div class="profile-city">
+              <span>{{runner.city}}</span>
+          </div>
+        </div>
+        <div class="widget-profile-body">
+            <div class="block-left">
+              <a class="btn btn-xs btn-white">Run</a>
+              <a class="btn btn-xs btn-warning">{{runner.eventCount}}</a>
+            </div>
+            <div class="block-right">
+              <a class="btn btn-xs btn-success" target="_blank" 
+              href="{{runner.runnersProfile}}">View Profile 
+              <i class="fa fa-sign-in"></i></a>
+            </div>
+        </div>
+      </div>
+    </li>
+    <!-- END Runner Profile Block -->
+  </ul>  
+</div>
+
+
+

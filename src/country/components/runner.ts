@@ -1,3 +1,4 @@
+//Represent a Runner User Profile
 export class Runner {
 	constructor(
 		public name: string,
