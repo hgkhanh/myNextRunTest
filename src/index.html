@@ -6,8 +6,9 @@
   <title><%= APP_TITLE %></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- inject:css -->
-  <!-- endinject -->
+  <!-- lib -->
+  <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+  <!-- end lib-->
 </head>
 <body>
 
@@ -15,7 +16,7 @@
 
   <script>
   // function.name (all IE)
-  // Remove once https://github.com/angular/angular/issues/6501 is fixed.
+  // Remove once https://github.com/angulra/angular/issues/6501 is fixed.
   /*! @source http://stackoverflow.com/questions/6903762/function-name-not-supported-in-ie*/
   if (!Object.hasOwnProperty('name')) {
     Object.defineProperty(Function.prototype, 'name', {
