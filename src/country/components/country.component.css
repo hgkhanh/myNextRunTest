@@ -12,7 +12,7 @@ ul {
   padding: 0 0 0 8px;
 }
 
-/*Search Bar*/
+/*Filter Bar*/
 .country-select {	
 	border-radius: 0;
   display: block;
@@ -23,6 +23,25 @@ ul {
 	width: 200px;
 	margin: 0 auto;
 	padding-left: 10px;
+}
+
+.search-box {
+	min-width: 360px;
+}
+
+.search-box input {
+  display: block;
+  height: 44px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+	font-weight: bold;
+}
+
+i.fa-search {
+	position: absolute;
+	color: #D5D5D5;
+	right: 30px;
+	top: 15px;
 }
 
 /*Profile*/

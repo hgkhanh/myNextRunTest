@@ -1,21 +1,19 @@
-<div class='col-sm-12'>
-  <h1>Country List</h1>
-  <div class="col-sm-4 text-center mb10">
-    <select class="country-select " 
-      (change)="onCountryChangeEvent($event.target.value)">
-    	<option selected="selected" value=''> - Select Country - </option>
-      <option *ngFor="#country of countries;
-      #index = index" value={{country}}>{{country}}</option>
-    </select>
-  </div>
-  <div class="search-button col-sm-4 text-center mb10">
-    <label class="label-select filter-wrapper" style="width: 100%;">
-      <input class='lb-input lb-input-large' [(ngModel)]="keyword" style="width: 100%" placeholder="Type name or city in {{selected_country}}">
-    </label>
-  </div>
-</div>
-
 <div class='container'>
+  <h1 class="col-sm-4 text-left">Top Runners</h1>
+  <div class='col-sm-12'>  
+    <div class="col-sm-4 text-center mb10">
+      <select class="country-select " 
+        (change)="onCountryChangeEvent($event.target.value)">
+        <option selected="selected" value=''> - Select Country - </option>
+        <option *ngFor="#country of countries;
+        #index = index" value={{country}}>{{country}}</option>
+      </select>
+    </div>
+    <div class="search-box col-xs-12 col-sm-4 text-right mb10">
+      <i class="fa fa-search"></i>
+      <input class="span2" [(ngModel)]="keyword" style="width: 100%" placeholder="Type name or city in {{selected_country}}">
+    </div>
+  </div>
   <ul>
     <!-- Runner Profile Block -->
     <li *ngFor="#runner of runners" 
