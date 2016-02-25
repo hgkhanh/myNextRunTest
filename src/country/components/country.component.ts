@@ -1,6 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
 import {HTTP_PROVIDERS}    from 'angular2/http';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
+import {Runner} from './runner';
 import {NameListService} from '../../shared/services/name-list.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class CountryComponent implements OnInit {
   constructor(public nameListService: NameListService) { }
 
   countries: string[];
-  users: string[];
+  runners: Runner[];
   errorMessage: string;
 
   ngOnInit() { this.getCountries(); }
@@ -32,7 +33,7 @@ export class CountryComponent implements OnInit {
   getUsers(newCountry) {
     this.nameListService.fetchUserList(newCountry)
       .subscribe(
-      users => this.users = users,
+      runners => this.runners = runners,
       error => this.errorMessage = <any>error);
   }
 

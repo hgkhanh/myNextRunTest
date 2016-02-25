@@ -1,13 +1,3 @@
-<p>
-  Howdy! Here's a list of awesome computer scientists.
-  Do you know any others? Add to the list yourself.
-</p>
-
-<form (submit)="addName()">
-  <input [(ngModel)]="newName" placeholder="Awesome Computer Scientist">
-  <button type="submit">Add</button>
-</form>
-
 <h1>Country List</h1>
 <select (change)="onCountryChangeEvent($event.target.value)">
 	<option selected="selected" value=''> - Select Country - </option>
@@ -17,5 +7,12 @@
 
 <h1>Name List</h1>
 <ul>
-  <li *ngFor="#name of users">{{name}}</li>
+  <li *ngFor="#runner of runners">
+  	<div>Name: {{runner.name}}</div>
+  	<div>City: {{runner.city}}</div>
+  	<div>Profile Image: {{runner.profileImg}}</div>
+  	<div>Profile Link: {{runner.runnersProfile}}</div>
+  	<div>Event Count: {{runner.eventCount}}</div>
+  	<hr/>
+  </li>
 </ul>
