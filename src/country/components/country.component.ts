@@ -17,6 +17,7 @@ export class CountryComponent implements OnInit {
   constructor(public nameListService: NameListService) { }
 
   countries: string[];
+  selected_country = 'Selected Country';
   runners: Runner[];
   errorMessage: string;
 
@@ -38,6 +39,7 @@ export class CountryComponent implements OnInit {
   }
 
   onCountryChangeEvent(newCountry): void {
+    this.selected_country = newCountry;
     this.getUsers(newCountry);
   }
 }
