@@ -1,31 +1,22 @@
+import {Injectable}     from 'angular2/core';
+import {Http} from 'angular2/http';
+
+@Injectable()
 export class NameListService {
-  users = [
-    'Kay Bui',
-    'Donald Knuth',
-    'Alan Turing',
-    'Grace Hopper'
-  ];
 
-  userList = [];
+  private _countryListUrl = 'http://crossorigin.me/'+
+  'https://api-test.mynextrun.com/site/v1/profile-stats/countries/';
 
-  countries = [
-    'Finland',
-    'Norway',
-    'Denmark',
-    'Estonia'
-  ];
+  constructor(private http: Http) { }
 
-  getCountries(): string[] {
-    return this.countries;
+  fetchUserList(country: string) {
+    return this.http.get(this._countryListUrl+country)
+      .map(res => res.json());
   }
 
-  getUsers(): string[] {
-    return this.userList;
+  fetchCountryList() {
+    return this.http.get(this._countryListUrl)
+      .map(res => res.json());
   }
 
-  updateUserList(country: string): void {
-    console.log('country:'+country);
-    this.userList = [];
-    this.userList.push(this.users[+country]);
-  }
 }

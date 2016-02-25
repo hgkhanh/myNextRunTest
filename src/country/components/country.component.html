@@ -10,10 +10,12 @@
 
 <h1>Country List</h1>
 <select (change)="onCountryChangeEvent($event.target.value)">
-  <option *ngFor="#country of countries; #index = index" value={{index}}>{{country}}</option>
+	<option selected="selected" value=''> - Select Country - </option>
+  <option *ngFor="#country of countries;
+  #index = index" value={{country}}>{{country}}</option>
 </select>
 
 <h1>Name List</h1>
 <ul>
-  <li *ngFor="#name of nameListService.getUsers()">{{name}}</li>
+  <li *ngFor="#name of users">{{name}}</li>
 </ul>
