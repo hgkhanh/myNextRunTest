@@ -64,7 +64,7 @@ i.fa-search {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	min-height: 280px;
-	box-shadow: 0px 0px 8px #e7eaec;
+	box-shadow: 0px 0px 10px #9d9d9d;
 }
 
 .widget-profile-body {
@@ -75,30 +75,20 @@ i.fa-search {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	min-height: 64px;
-	box-shadow: 0px 0px 8px #e7eaec;
-}
-
-.block-right {
-	text-align: right;
-	float: right;
-}
-
-.block-left {
-	text-align: left;
-	float: left;
+	box-shadow: 0px 0px 10px #9d9d9d;
 }
 
 img.circle-border {
   border: 6px solid #FFFFFF;
   border-radius: 50%;  
   box-shadow: 0px 0px 8px #fafafa;  
-  -webkit-transition: all 0.5s ease;
+  -webkit-transition: all 0.2s ease-in-out;
 }
 
 img.circle-border:hover {
   box-shadow: 0px 0px 24px #fafafa;
   -webkit-transform:scale(1.1); 
-  -webkit-transition: all 0.5s ease;
+  -webkit-transition: all 0.2s ease-in-out;
 }
 
 .btn-white {

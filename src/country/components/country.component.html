@@ -1,6 +1,8 @@
 <div class='container'>
-  <h1 class="col-sm-4 text-left">Top Runners</h1>
-  <div class='col-sm-12'>  
+  <div class="row">
+    <h1 class="col-sm-4 text-left">Top Runners</h1>
+  </div>  
+  <div class='row'>  
     <div class="col-sm-4 text-center mb10">
       <select class="country-select " 
         (change)="onCountryChangeEvent($event.target.value)">
@@ -11,45 +13,54 @@
     </div>
     <div class="search-box col-xs-12 col-sm-4 text-right mb10">
       <i class="fa fa-search"></i>
-      <input class="span2" [(ngModel)]="keyword" style="width: 100%" placeholder="Type name or city in {{selected_country}}">
+      <input class="span2" [(ngModel)]="keyword" style="width: 100%" placeholder="Type name or city in {{selected_cuontry}}">
     </div>
   </div>
-  <ul>
-    <!-- Runner Profile Block -->
-    <li *ngFor="#runner of runners" 
-      class='col-xs-6 col-sm-4 col-md-3 col-lg-3'>
-      <div class="widget-profile-holder">
-        <div class="widget-profile-header text-center">
-          <div class="profile-name mb20">
-            <div class="center-block">
-              <span>{{runner.name}}</span>
+
+  <!-- Search Result -->
+  <div class='row'>
+    <div *ngIf="runners?.length > 0" class=".col-sm-3 pull-right result-count">Found {{runners.length}} runners
+    </div>    
+  </div>
+
+  <div class='row'>
+    <ul>
+      <!-- Runner Profile Block -->
+      <li *ngFor="#runner of runners" 
+        class='col-xs-6 col-sm-4 col-md-3 col-lg-3'>
+        <div class="widget-profile-holder">
+          <div class="widget-profile-header text-center">
+            <div class="profile-name mb20">
+              <div class="center-block">
+                <span>{{runner.name}}</span>
+              </div>
+            </div>
+            <div class="profile-image mb10">
+              <img src="{{runner.profileImg}}" 
+              class="img-circle circle-border m-b-md" alt="profile">
+            </div>
+            <div class="profile-city">
+              <div class="center-block">
+                <span>{{runner.city}}</span>
+              </div>
             </div>
           </div>
-          <div class="profile-image mb10">
-            <img src="{{runner.profileImg}}" 
-            class="img-circle circle-border m-b-md" alt="profile">
-          </div>
-          <div class="profile-city">
-            <div class="center-block">
-              <span>{{runner.city}}</span>
-            </div>
+          <div class="widget-profile-body">
+              <div class="pull-left">
+                <a class="btn btn-xs btn-white">Run</a>
+                <a class="btn btn-xs btn-warning">{{runner.eventCount}}</a>
+              </div>
+              <div class="pull-right">
+                <a class="btn btn-xs btn-success" target="_blank" 
+                href="{{runner.runnersProfile}}">View Profile 
+                <i class="fa fa-sign-in"></i></a>
+              </div>
           </div>
         </div>
-        <div class="widget-profile-body">
-            <div class="block-left">
-              <a class="btn btn-xs btn-white">Run</a>
-              <a class="btn btn-xs btn-warning">{{runner.eventCount}}</a>
-            </div>
-            <div class="block-right">
-              <a class="btn btn-xs btn-success" target="_blank" 
-              href="{{runner.runnersProfile}}">View Profile 
-              <i class="fa fa-sign-in"></i></a>
-            </div>
-        </div>
-      </div>
-    </li>
-    <!-- END Runner Profile Block -->
-  </ul>  
+      </li>
+      <!-- END Runner Profile Block -->
+    </ul>
+  </div>
 </div>
 
 
