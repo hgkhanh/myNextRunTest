@@ -44,6 +44,10 @@ i.fa-search {
 	top: 15px;
 }
 
+.result-count span {
+  font-weight: bold;
+  color: green;
+}
 /*Profile*/
 
 .widget-profile-holder {

@@ -13,13 +13,13 @@
     </div>
     <div class="search-box col-xs-12 col-sm-4 text-right mb10">
       <i class="fa fa-search"></i>
-      <input class="span2" [(ngModel)]="keyword" style="width: 100%" placeholder="Type name or city in {{selected_cuontry}}">
+      <input class="span2" [(ngModel)]="keyword" style="width: 100%" placeholder="Type name or city in {{selected_country}}">
     </div>
   </div>
 
   <!-- Search Result -->
   <div class='row'>
-    <div *ngIf="runners?.length > 0" class=".col-sm-3 pull-right result-count">Found {{runners.length}} runners
+    <div *ngIf="runners?.length > 0" class=".col-sm-3 pull-right result-count">Found <span>{{runners.length}}</span> runners
     </div>    
   </div>
 
@@ -41,7 +41,7 @@
             </div>
             <div class="profile-city">
               <div class="center-block">
-                <span>{{runner.city}}</span>
+                <span><i *ngIf="runner.city != ''" class="fa fa-map-marker"></i> {{runner.city}}</span>
               </div>
             </div>
           </div>
