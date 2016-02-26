@@ -1,7 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
 import {HTTP_PROVIDERS}    from 'angular2/http';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
-import {Runner} from './runner';
+// import {Runner} from './runner';
 import {NameListService} from '../../shared/services/name-list.service';
 
 @Component({
@@ -18,28 +18,42 @@ export class CountryComponent implements OnInit {
 
   countries: string[];
   selected_country = 'Selected Country';
-  runners: Runner[];
+  runners: {};
   errorMessage: string;
+  isLoading: Boolean = false;
 
-  ngOnInit() { this.getCountries(); }
+  ngOnInit() { this.fetchCountries(); }
 
-  getCountries() {
+  // Call service to fetch Country List, save to this.countries
+  fetchCountries() {
+    this.isLoading = true;
     this.nameListService.fetchCountryList()
       .subscribe(
-    countries => this.countries = countries,
+      countries => {
+        this.countries = countries;
+        this.isLoading = false;
+      },
       error => this.errorMessage = <any>error);
-    // this.countries = this.nameListService.fetchCountryList();
   }
 
-  getUsers(newCountry) {
+  // Call service to fetch User List, save to this.runners
+  fetchUsers(newCountry) {
+    this.isLoading = true;
     this.nameListService.fetchUserList(newCountry)
       .subscribe(
-      runners => this.runners = runners,
+      runners => {
+        this.runners = runners;
+        this.isLoading = false;
+      },
       error => this.errorMessage = <any>error);
   }
 
   onCountryChangeEvent(newCountry): void {
     this.selected_country = newCountry;
-    this.getUsers(newCountry);
+    this.fetchUsers(newCountry);
   }
+
+  // filterUsers(country,searchText): Runner[]{
+
+  // }
 }

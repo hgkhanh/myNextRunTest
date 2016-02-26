@@ -9,6 +9,10 @@
 .mb20 {
   margin-bottom: 20px;
 }
+
+.mt20 {
+  margin-top: 20px;
+}
 /* Reset */
 html, body, div {
   border: 0;
