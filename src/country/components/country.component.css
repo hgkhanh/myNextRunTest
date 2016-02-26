@@ -2,24 +2,44 @@
   display: block;
 }
 
-input {
-  width: 250px;
-}
-
 ul {
   list-style-type: none;
   padding: 0 0 0 8px;
 }
+
+.runner-body {
+	min-height: 500px;
+	background: #fff;
+	box-shadow: 0px 2px 6px #9d9d9d;
+}
+
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #e3e3e3;
+}
+
+/*new searchbar*/
+
+.search {
+	margin-top: -25%;
+}
+.search .form-section{
+	background:rgba(0,0,0,0.6);
+	border: 2px solid #414141;
+	border-radius: 5px;
+	padding: 10px;
+}
 /*header*/
 .hero {
-	background: url('https://www.mynextrun.com/images/hero.jpg');
+	background: url('http://i.imgur.com/uncerxo.jpg');
 	background-size: cover;
 	clear: both;
 	height: 350px;
 }
 
 .control-box-wrapper {
-	background: rgba(36, 41, 51, 0.75);
+	background: rgba(36, 41, 51, 0.25);
 	width: 100%;
   height: 100%;
   display: table;
@@ -32,8 +52,15 @@ ul {
 	text-align: center;
 }
 
+.search-bar-wrapper {
+	padding: 10px;
+	background: rgba(0,0,0,0.25);
+}
+
 .slogan {
 	color: #fff;
+	margin: 40px;
+	font-weight: 100;
 }
 /*Pagination*/
 .pagination li {
@@ -55,7 +82,6 @@ ul {
   padding-top: 10px;
   padding-bottom: 10px;  
 	color: #565a5c;
-	width: 250px;
 	margin: 0 auto;
 	padding-left: 10px;
 }
@@ -72,6 +98,7 @@ label.dropdown select {
 	appearance: none;
 	cursor: pointer;
 	outline: none;
+	max-width: 100%;
 }
 
 label.dropdown select:-moz-focusring {
@@ -113,8 +140,8 @@ label.dropdown:after {
   -moz-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
-  right: 1px;
   top: 3px;
+  right: 0px;
   border-bottom: 1px solid #aaa;
   position: absolute;
   pointer-events: none;
@@ -144,17 +171,13 @@ label.dropdown:after {
 	}
 }
 
-.search-box {
-	min-width: 360px;
-}
-
 .search-box input {
+	width: 100%;
   display: block;
   height: 44px;
   padding-top: 10px;
   padding-bottom: 10px;
 	font-weight: bold;
-	width: 100%;
 }
 
 i.fa-search {
