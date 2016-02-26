@@ -45,7 +45,7 @@ i.fa-search {
 	top: 15px;
 }
 
-.result-count span {
+.result-count span.green-highlight {
   font-weight: bold;
   color: green;
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
 import {HTTP_PROVIDERS}    from 'angular2/http';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
-// import {Runner} from './runner';
+import {Runner} from './runner';
 import {NameListService} from '../../shared/services/name-list.service';
 
 @Component({
@@ -16,10 +16,11 @@ export class CountryComponent implements OnInit {
 
   constructor(public nameListService: NameListService) { }
 
-  countries: string[];
+  countries = [];
   selected_country = 'Selected Country';
-  runners: {};
+  runners = [];
   errorMessage: string;
+  searchText = '';
   isLoading: Boolean = false;
 
   ngOnInit() { this.fetchCountries(); }
@@ -53,7 +54,18 @@ export class CountryComponent implements OnInit {
     this.fetchUsers(newCountry);
   }
 
-  // filterUsers(country,searchText): Runner[]{
-
-  // }
+  filterUsers(searchText): Runner[] {
+    searchText = searchText.toLowerCase();
+    if (searchText == null || searchText.length == 0) {
+      return this.runners;
+    } else {
+      return this.runners.map((runner) => {
+        //foreach element of runners array, 
+        //return if its 'name' or 'city' match searchText
+        if (runner.name.toLowerCase().indexOf(searchText) !== -1
+      || runner.city.toLowerCase().indexOf(searchText) !== -1)
+          return runner;
+      }).filter(x=>!!x);
+    }
+  }
 }
