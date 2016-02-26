@@ -1,73 +1,100 @@
-<div class='container'>
-  <div class="row">
-    <h1 class="col-sm-4 text-left">Top Runners</h1>
-  </div>  
-  <div class='row'>  
-    <div class="col-sm-4 text-center mb10">
-      <select class="country-select " 
-        (change)="onCountryChangeEvent($event.target.value)">
-        <option selected="selected" value=''> - Select Country - </option>
-        <option *ngFor="#country of countries;
-        #index = index" value={{country}}>{{country}}</option>
-      </select>
-    </div>
-    <div class="search-box col-xs-12 col-sm-4 text-right mb10">
-      <i class="fa fa-search"></i>
-      <input type="text" [(ngModel)]="searchText" placeholder="Type name or city in {{selected_country}}">
+<div class='hero'>
+  <div class="control-box-wrapper">
+    <div class="control-box container">
+      <h1 class="text-center slogan">Join the community of over 200 000 runners</h1>
+      <div class="col-sm-1"></div>
+      <div class="col-sm-4 text-center mb10 mt20">
+        <label class="dropdown">
+          <select class="country-select " 
+            (change)="onCountryChangeEvent($event.target.value)">
+            <option selected="selected" value=''><span style="font-style: italic;">Select Country</span></option>
+            <option *ngFor="#country of countries;
+            #index = index" value={{country}}><i class="fa fa-map-marker"></i> {{country}}</option>
+          </select>
+        </label>
+      </div>
+      <div class="search-box col-sm-6 text-center mb10 mt20">
+        <i class="fa fa-search"></i>
+        <input type="text" #listFilter (keyup)="0" placeholder="Type name or city in {{selected_country}}">
+      </div>
+      <div class="col-sm-1"></div>
     </div>
   </div>
+</div>
 
+
+
+
+
+<div class='container'>
   <!-- Search Progress/Result -->  
-  <!-- Found -->
+    <!-- Found -->
   <div class="row">
-    <div *ngIf="!isLoading && runners?.length > 0" class=".col-sm-3 pull-right result-count">Found <span class="green-highlight">{{runners.length}}</span> runners <span *ngIf="searchText.length > 0"> match <span class="green-highlight">"{{searchText}}"</span></span>
+    <div *ngIf="!isLoading && runners?.length > 0" class="col-sm-4 col-sm-offset-4 text-center result-count mt20">
+      Found <span class="green-highlight">{{(runners | runnerFilter:listFilter.value).length}}</span> runners <span *ngIf="listFilter.value.length > 0"> match <span class="green-highlight">"{{listFilter.value}}"</span></span>
     </div>
     <!-- Loading -->
-    <div id="1cdasdf" *ngIf="isLoading" class="col-sm-1 col-sm-offset-6 mt20">
+    <div *ngIf="isLoading" class="col-sm-1 col-sm-offset-6 mt100">
      <i class="fa fa-spinner fa-spin fa-2x"></i>
     </div>
     <!-- Eror -->
-    <div id="2cdasdf" *ngIf="!isLoading && errorMessage" class="col-sm-1 col-sm-offset-6 mt20">{{errorMessage}}
+    <div *ngIf="!isLoading && errorMessage" class="col-sm-1 col-sm-offset-6 mt20">{{errorMessage}}
     </div>
   </div>
-  <div class="row" *ngIf="filterUsers(searchText).length > 0">
-  <!-- Runner Profile Block -->
-    <ul>      
-      <li *ngFor="#runner of filterUsers(searchText)" 
-        class='col-xs-6 col-sm-4 col-md-3 col-lg-3'>
-        <div class="widget-profile-holder">
-          <div class="widget-profile-header text-center">
-            <div class="profile-name mb20">
-              <div class="center-block">
-                <span>{{runner.name}}</span>
+
+  <!-- Runner Profile List -->
+  <div class="user-list-container" *ngIf="(runners | runnerFilter:listFilter.value).length > 0">
+    <!-- Pagination Controller Bottom-->
+    <div class="row">
+      <div class="text-center mt10">     
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div>
+    </div>
+    <!-- List blocks -->
+    <div class="row">
+      <ul>      
+        <li *ngFor="#runner of runners | runnerFilter:listFilter.value | paginate: { itemsPerPage: 12, currentPage: page}"
+          class='col-xs-6 col-sm-4 col-md-3 col-lg-3'>
+          <div class="widget-profile-holder">
+            <div class="widget-profile-header text-center">
+              <div class="profile-name mb20">
+                <div class="center-block">
+                  <span>{{runner.name}}</span>
+                </div>
+              </div>
+              <div class="profile-image mb10">
+                <img src="{{runner.profileImg}}" 
+                class="img-circle circle-border m-b-md" alt="profile">
+              </div>
+              <div class="profile-city">
+                <div class="center-block">
+                  <span><i *ngIf="runner.city != ''" class="fa fa-map-marker"></i> {{runner.city}}</span>
+                </div>
               </div>
             </div>
-            <div class="profile-image mb10">
-              <img src="{{runner.profileImg}}" 
-              class="img-circle circle-border m-b-md" alt="profile">
-            </div>
-            <div class="profile-city">
-              <div class="center-block">
-                <span><i *ngIf="runner.city != ''" class="fa fa-map-marker"></i> {{runner.city}}</span>
-              </div>
+            <div class="widget-profile-body">
+                <div class="pull-left">
+                  <a class="btn btn-xs btn-white">Run</a>
+                  <a class="btn btn-xs btn-warning">{{runner.eventCount}}</a>
+                </div>
+                <div class="pull-right">
+                  <a class="btn btn-xs btn-success" target="_blank" 
+                  href="{{runner.runnersProfile}}">View Profile 
+                  <i class="fa fa-sign-in"></i></a>
+                </div>
             </div>
           </div>
-          <div class="widget-profile-body">
-              <div class="pull-left">
-                <a class="btn btn-xs btn-white">Run</a>
-                <a class="btn btn-xs btn-warning">{{runner.eventCount}}</a>
-              </div>
-              <div class="pull-right">
-                <a class="btn btn-xs btn-success" target="_blank" 
-                href="{{runner.runnersProfile}}">View Profile 
-                <i class="fa fa-sign-in"></i></a>
-              </div>
-          </div>
-        </div>
-      </li>      
-    </ul>
-  </div>
-  <!-- END Runner Profile Block -->
+        </li>      
+      </ul>
+    </div>
+    <!-- Pagination Controller Bottom-->
+    <div class="row">
+      <div class="text-center mt10 mb20">     
+        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>  
+  <!-- END Runner Profile List -->
 </div>
 
 

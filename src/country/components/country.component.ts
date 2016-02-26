@@ -1,16 +1,20 @@
 import {Component, OnInit} from 'angular2/core';
 import {HTTP_PROVIDERS}    from 'angular2/http';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
-import {Runner} from './runner';
+// import {Runner} from './runner';
 import {NameListService} from '../../shared/services/name-list.service';
+import {PaginatePipe, PAGINATION_DIRECTIVES, PaginationService} from
+'../../../node_modules/ng2-pagination/dist/ng2-pagination';
+import {RunnerFilterPipe} from './runner-filter.pipe';
 
 @Component({
   selector: 'sd-country',
   moduleId: module.id,
   templateUrl: './country.component.html',
   styleUrls: ['./country.component.css'],
-  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES],
-  providers: [HTTP_PROVIDERS, NameListService]
+  directives: [FORM_DIRECTIVES, CORE_DIRECTIVES, PAGINATION_DIRECTIVES],
+  providers: [HTTP_PROVIDERS, NameListService, PaginationService],
+  pipes: [PaginatePipe, RunnerFilterPipe]
 })
 export class CountryComponent implements OnInit {
 

@@ -13,6 +13,10 @@
 .mt20 {
   margin-top: 20px;
 }
+
+.mt100 {
+  margin-top: 100px;
+}
 /* Reset */
 html, body, div {
   border: 0;
@@ -25,7 +29,7 @@ html, body, div {
 
 /* Set up a default font and some padding to provide breathing room */
 body {
-  font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Roboto, "open sans", Helvetica, Arial, sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;  
@@ -49,6 +53,38 @@ ul {
 li {
   font-weight: 400;
   margin-top: 4px;
+  font-size: 1.3rem;
+}
+
+.pagination li {
+  font-size: 1.3rem!important;
+}
+
+.pagination li span {
+  padding: 0.1875rem 0.625rem;
+}
+
+.pagination-previous.disabled::before, .pagination-next.disabled::after {
+  content: ''!important;
+}
+
+.pagination-previous.disabled {
+  position: relative;
+  top: -8px;
+  left: 12px;
+}
+
+.pagination-next.disabled {
+  position: relative;
+  top: -8px;
+  left: -6px;
+}
+
+.pagination li.current {
+  top: -6px;
+  right: 0px;
+  position: relative;
+  background: #f0ad4e!important;
 }
 
 input {

@@ -1,6 +1,5 @@
 :host {
   display: block;
-  padding: 0 16px;
 }
 
 input {
@@ -11,6 +10,42 @@ ul {
   list-style-type: none;
   padding: 0 0 0 8px;
 }
+/*header*/
+.hero {
+	background: url('https://www.mynextrun.com/images/hero.jpg');
+	background-size: cover;
+	clear: both;
+	height: 350px;
+}
+
+.control-box-wrapper {
+	background: rgba(36, 41, 51, 0.75);
+	width: 100%;
+  height: 100%;
+  display: table;
+  position: relative;
+}
+
+.control-box {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.slogan {
+	color: #fff;
+}
+/*Pagination*/
+.pagination li {
+  font-size: 16px!important;
+}
+
+.pagination li.current {
+  top: -5px!important;
+  position: relative!important;
+  background: #fff;
+}
+
 
 /*Filter Bar*/
 .country-select {	
@@ -20,9 +55,93 @@ ul {
   padding-top: 10px;
   padding-bottom: 10px;  
 	color: #565a5c;
-	width: 200px;
+	width: 250px;
 	margin: 0 auto;
 	padding-left: 10px;
+}
+
+label.dropdown select {
+	padding: 10px 42px 10px 10px;
+	background: #f8f8f8;
+	color: #444;
+	border: 1px solid #aaa;
+	border-radius: 0;
+	display: inline-block;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	cursor: pointer;
+	outline: none;
+}
+
+label.dropdown select:-moz-focusring {
+	color: transparent;
+	text-shadow: 0 0 0 #444;
+}
+
+label.dropdown select::-ms-expand {
+	display: none;
+}
+
+label.dropdown:before {
+	content: '';
+	right: 5px;
+	top: 5px;
+	width: 30px;
+	height: 33px;
+	background: #f8f8f8;
+	position: absolute;
+	pointer-events: none;
+	display: block;
+}
+
+label.dropdown { 
+	position: relative;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+label.dropdown:hover { 
+	text-shadow: 4px 0px 4px #aaa;
+}
+
+label.dropdown:after {
+  content: '>';
+  font: 24px Consolas, monospace;
+  color: #444;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  right: 1px;
+  top: 3px;
+  border-bottom: 1px solid #aaa;
+  position: absolute;
+  pointer-events: none;
+  width: 43px;
+  padding: 2px 10px 0 0px;
+  text-indent: 14px;
+  height: 38px;
+  vertical-align: middle;
+}
+
+@media screen\0 {
+	label.dropdown:after {
+		width: 38px;
+		text-indent: 15px;
+    right: 0;
+	}
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+	label.dropdown select { padding-right: 40px; }
+	label.dropdown:before { right: 6px; }
+	label.dropdown:after {
+		text-indent: 14px;
+		right: 6px;
+		top: -5px;
+		width: 36px;
+	}
 }
 
 .search-box {
@@ -69,7 +188,7 @@ i.fa-search {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	min-height: 280px;
-	box-shadow: 0px 0px 10px #9d9d9d;
+	box-shadow: 0px 10px 10px #9d9d9d;
 }
 
 .widget-profile-body {
@@ -80,7 +199,7 @@ i.fa-search {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	min-height: 64px;
-	box-shadow: 0px 0px 10px #9d9d9d;
+	box-shadow: 0px 10px 10px #9d9d9d;
 }
 
 img.circle-border {
@@ -88,12 +207,20 @@ img.circle-border {
   border-radius: 50%;  
   box-shadow: 0px 0px 8px #fafafa;  
   -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+img.img-circle {
+	width: 140px;
+	height: 140px;
+	object-fit: cover;
 }
 
 img.circle-border:hover {
   box-shadow: 0px 0px 24px #fafafa;
   -webkit-transform:scale(1.1); 
   -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .btn-white {
