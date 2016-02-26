@@ -18,7 +18,7 @@ npm run build.prod
 # Run production server
 npm run serve.prod
 ```
-
+(Note: this project requires node and npm)
 # Credits
 
 * Project structure based on [angular2-seed](https://github.com/mgechev/angular2-seed)
