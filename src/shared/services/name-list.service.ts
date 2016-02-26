@@ -19,5 +19,4 @@ export class NameListService {
     return this.http.get(this._countryListUrl)
       .map(res => res.json());
   }
-
 }

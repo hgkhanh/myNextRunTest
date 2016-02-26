@@ -16,9 +16,9 @@ export class CountryComponent implements OnInit {
 
   constructor(public nameListService: NameListService) { }
 
-  countries = [];
+  countries = []; // Hold array of all countries
+  runners = []; // Hold array of users in selected contries
   selected_country = 'Selected Country';
-  runners = [];
   errorMessage: string;
   searchText = '';
   isLoading: Boolean = false;
@@ -56,16 +56,19 @@ export class CountryComponent implements OnInit {
 
   filterUsers(searchText): Runner[] {
     searchText = searchText.toLowerCase();
-    if (searchText == null || searchText.length == 0) {
+    if (searchText === null || searchText.length === 0) {
       return this.runners;
     } else {
       return this.runners.map((runner) => {
         //foreach element of runners array, 
         //return if its 'name' or 'city' match searchText
-        if (runner.name.toLowerCase().indexOf(searchText) !== -1
-      || runner.city.toLowerCase().indexOf(searchText) !== -1)
+        if (runner.name.toLowerCase().indexOf(searchText) !== -1 ||
+          runner.city.toLowerCase().indexOf(searchText) !== -1)
           return runner;
-      }).filter(x=>!!x);
+      }).filter((runner) => {
+      if (runner)
+        return true;
+      });
     }
   }
 }
