@@ -6,17 +6,10 @@ An Angular 2 app to search runners by country.
 ```bash
 git clone https://github.com/hgkhanh/myNextRunTest.git
 cd myNextRunTest
-```
-install the project's dependencies
-```bash
+#install dependencies
 npm install
-```
-run
-```bash
-# prod build
-npm run build.prod
-# Run production server
-npm run serve.prod
+#run
+npm start
 ```
 (Note: this project requires node and npm)
 # Credits
