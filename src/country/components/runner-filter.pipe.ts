@@ -5,7 +5,7 @@ import {Pipe, PipeTransform} from 'angular2/core';
 })
 
 export class RunnerFilterPipe implements PipeTransform {
-    transform(runnersList: any, searchText: string): any {
+    transform(runnersList: any, searchText: string[]): any {
 			let filter = searchText.toString().toLowerCase();
 			return filter ? runnersList.filter(runner=> {
 				//foreach element of runners array, 

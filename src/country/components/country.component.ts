@@ -1,10 +1,10 @@
 import {Component, OnInit} from 'angular2/core';
 import {HTTP_PROVIDERS}    from 'angular2/http';
 import {CORE_DIRECTIVES, FORM_DIRECTIVES} from 'angular2/common';
-// import {Runner} from './runner';
+import {Runner} from './runner';
 import {NameListService} from '../../shared/services/name-list.service';
 import {PaginatePipe, PAGINATION_DIRECTIVES, PaginationService} from
-'../../../node_modules/ng2-pagination/dist/ng2-pagination';
+'ng2-pagination/dist/ng2-pagination';
 import {RunnerFilterPipe} from './runner-filter.pipe';
 
 @Component({
@@ -46,8 +46,8 @@ export class CountryComponent implements OnInit {
     this.isLoading = true;
     this.nameListService.fetchUserList(newCountry)
       .subscribe(
-      runners => {
-        this.runners = runners;
+      res => {
+        this.runners = res;
         this.isLoading = false;
       },
       error => this.errorMessage = <any>error);

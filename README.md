@@ -8,8 +8,9 @@ git clone https://github.com/hgkhanh/myNextRunTest.git
 cd myNextRunTest
 #install dependencies
 npm install
-#run
-npm start
+#build and run 
+npm run build.prod
+npm run serve.prod
 ```
 (Note: this project requires node and npm)
 # Credits
